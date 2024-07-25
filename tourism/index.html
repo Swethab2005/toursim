@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="script.js"></script>
+    <title>Travel and experience</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo" >Travel</a>
+      <i class='bx bx-menu' id="menu-icon"></i>
+      <nav class="navbar">
+          <a href="#" >Home</a>
+          <a href="#explore" class="scroll-link">Explore</a>
+          <a href="#detail" class="scroll-link">About</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
+      </nav>
+  </header>
+  <div class="nav-bg"></div>
+    <div class="parallax__container">
+      <img src="assets/bg-1.jpg" alt="parallax" />
+      <img id="bg-2" src="assets/bg-2.png" alt="parallax" />
+      <h1 id="title">Adventure</h1>
+      <img id="bg-3" src="assets/bg-3.png" alt="parallax" />
+    </div>
+    <section class="about" id="explore">
+      <div class="image__gallary">
+        <div class="image__card" id="image__card-1">
+          <img src="assets/grid-1.jpg" alt="grid" />
+          <div class="overlay">
+            <h3>Cable Car</h3>
+            <p>roping is adventurous</p>
+            <a href="#">Book Now</a>
+          </div>
+        </div>
+        <div class="image__card" id="image__card-2">
+          <img src="assets/grid-2.jpg" alt="grid" />
+          <div class="overlay">
+            <h3>Snowboarding</h3>
+            <p>roping is adventurous</p>
+            <a href="#">Book Now</a>
+          </div>
+        </div>
+        <div class="image__card" id="image__card-3">
+          <img src="assets/grid-3.jpg" alt="grid" />
+          <div class="overlay">
+            <h3>Horse Riding</h3>
+            <p>roping is adventurous</p>
+            <a href="#">Book Now</a>
+          </div>
+        </div>
+        <div class="image__card" id="image__card-4">
+          <img src="assets/grid-4.jpg" alt="grid" />
+          <div class="overlay">
+            <h3>Paragliding</h3>
+            <p>roping is adventurous</p>
+            <a href="#">Book Now</a>
+          </div>
+        </div>
+        <div class="image__card" id="image__card-5">
+          <img src="assets/image.png" alt="grid" />
+          <div class="overlay">
+            <h3>Paragliding</h3>
+            <p>roping is adventurous</p>
+            <a href="#">Book Now</a>
+          </div>
+        </div>
+        <div class="image__card" id="image__card-6">
+          <img src="assets/scuba.png" alt="grid" />
+          <div class="overlay">
+            <h3>Scuba driving</h3>
+            <p>roping is adventurous</p>
+            <a href="#">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="details" id="detail">
+        <div class="container">
+          <h2 class="fade-in">About Us</h2>
+          <br>
+        <p class="slide-up">
+          Welcome to Adventure Parallax, your ultimate destination for thrilling outdoor experiences. Whether it's snowboarding, horse riding, or paragliding, we have adventures for every enthusiast.
+        </p>
+        <p class="slide-up">
+          Our mission is to offer unforgettable journeys that challenge your limits and immerse you in nature's beauty. With expert guides and top-notch equipment, we ensure every adventure is safe, exciting, and memorable.
+        </p>
+        <p class="slide-up">
+          Join us and embark on an adventure of a lifetime. Book your next escapade with Adventure Parallax today!
+        </p>
+      </div>
+     
+      
+    </section>
+
+    <script>
+      var title = document.getElementById("title");
+      var bg_2 = document.getElementById("bg-2");
+      var bg_3 = document.getElementById("bg-3");
+
+      var image_card_1 = document.getElementById("image__card-1");
+      var image_card_2 = document.getElementById("image__card-2");
+      var image_card_3 = document.getElementById("image__card-3");
+      var image_card_4 = document.getElementById("image__card-4");
+      var image_card_5 = document.getElementById("image__card-5");
+      var image_card_6 = document.getElementById("image__card-6");
+
+
+      document.addEventListener("scroll", (event) => {
+        var positionY = window.scrollY;
+
+        title.style.fontSize = `${100 + positionY * 0.5}px`;
+
+        bg_2.style.top = `-${positionY * 0.5}px`;
+        bg_3.style.top = `-${positionY}px`;
+        bg_3.style.scale = 1 + positionY * 0.001;
+
+        image_card_1.style.transform = `translateY(${
+          positionY * -0.5 + 400
+        }px)`;
+
+        image_card_2.style.transform = `translateY(${positionY * 0.1 + -50}px)`;
+
+        image_card_3.style.transform = `translateY(${
+          positionY * -0.1 + 100
+        }px)`;
+
+        image_card_4.style.transform = `translateY(${
+          positionY * 0.2 + -125
+        }px)`;
+
+        image_card_5.style.transform = `translateY(${
+          positionY * -0.5 + 400
+        }px)`;
+        image_card_6.style.transform = `translateY(${positionY * 0.1 + -50}px)`;
+
+
+        var _newOpacity = positionY * 0.001;
+        if (_newOpacity >= 0 && _newOpacity <= 1) {
+          image_card_1.style.opacity = _newOpacity;
+          image_card_2.style.opacity = _newOpacity;
+          image_card_3.style.opacity = _newOpacity;
+          image_card_4.style.opacity = _newOpacity;
+          image_card_5.style.opacity = _newOpacity;
+          image_card_6.style.opacity = _newOpacity;
+        }
+      });
+      document.querySelectorAll('.scroll-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        smoothScrollTo(targetElement, 2000); // Duration set to 2000ms (2 seconds)
+      });
+    });
+
+    function smoothScrollTo(target, duration) {
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  });
+
+  document.querySelectorAll('.fade-in, .slide-up').forEach(element => {
+    observer.observe(element);
+  });
+
+  const containerObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  });
+
+  containerObserver.observe(document.querySelector('.container'));
+});
+
+    </script>
+  </body>
+</html>
